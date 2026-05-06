@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  /* Ultra-modern 2026 Deep Purple Dark Theme */
+  --background: oklch(0.1 0.02 280); 
+  --foreground: oklch(0.98 0.01 280);
+  
+  --primary: oklch(0.5 0.25 285);
+  --primary-foreground: oklch(0.99 0.01 285);
+  
+  --secondary: oklch(0.18 0.04 285);
+  --secondary-foreground: oklch(0.8 0.05 285);
+  
+  --accent: oklch(0.7 0.2 320);
+  --accent-foreground: oklch(0.1 0.05 320);
+  
+  --muted: oklch(0.15 0.03 280);
+  --muted-foreground: oklch(0.55 0.03 280);
+  
+  --border: oklch(0.25 0.05 280);
+  --radius: 1.5rem;
+
+  /* Fonts */
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-inter-tight), var(--font-sans);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 3rem;
+  --radius-3xl: 5rem;
+  
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: 
+      radial-gradient(at 0% 0%, oklch(0.15 0.05 285 / 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(0.15 0.05 320 / 0.3) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
+  }
+  
+  .glass-premium {
+    @apply bg-primary/10 backdrop-blur-3xl border border-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)];
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary via-primary/90 to-accent font-black;
+  }
+
+  .premium-shadow {
+    @apply shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)];
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
