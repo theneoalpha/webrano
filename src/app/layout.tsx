@@ -15,17 +15,25 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Webrano | Premium Digital Agency for Local Businesses",
-  description: "Webrano delivers high-end, senior-led web development and luxury design for clinics, salons, and interior designers. Affordable excellence for your digital presence.",
+  title: "Webrano | Expert Development & Design",
+  description:
+    "Specialized in high-end websites for Interior Designers, Salons, and Clinics. Senior-led startup providing corporate-grade development for local businesses.",
+  icons: {
+    icon: "/logo.svg", // This points to public/logo.svg
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "Webrano | Premium Digital Agency",
-    description: "Expert web development and luxury design for your local business.",
-    images: ["/og-image.png"], // You can add an OG image in your public folder later
+    description:
+      "Expert web development and luxury design for your local business.",
+    images: ["/logo.svg"],
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Webrano | Expert Web Development",
-    description: "High-performance websites for local businesses.",
+    title: "Webrano | Digital Agency",
+    description: "Corporate-grade development for local brands.",
+    images: ["/logo.svg"],
   },
 };
 
@@ -36,7 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${interTight.variable} ${instrumentSans.variable} font-sans antialiased bg-[#020105] text-foreground selection:bg-primary/30`}>
+      <body
+        className={`${interTight.variable} ${instrumentSans.variable} font-sans antialiased bg-[#020105] text-foreground selection:bg-primary/30`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />
