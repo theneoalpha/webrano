@@ -1,38 +1,33 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Inter_Tight } from "next/font/google";
+import { Inter_Tight, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { getSiteSettings } from "@/sanity/queries";
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter-tight",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getSiteSettings();
-  
-  return {
-    title: {
-      default: settings?.title || "Local Business Starter",
-      template: `%s | ${settings?.title || "Local Business Starter"}`
-    },
-    description: settings?.description || "A professional, CMS-driven starter kit for local businesses.",
-    openGraph: {
-      title: settings?.title,
-      description: settings?.description,
-      images: settings?.ogImage ? [{ url: settings.ogImage }] : [],
-    },
-  };
-}
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument-sans",
+});
+
+export const metadata: Metadata = {
+  title: "Webrano | Premium Digital Agency for Local Businesses",
+  description: "Webrano delivers high-end, senior-led web development and luxury design for clinics, salons, and interior designers. Affordable excellence for your digital presence.",
+  openGraph: {
+    title: "Webrano | Premium Digital Agency",
+    description: "Expert web development and luxury design for your local business.",
+    images: ["/og-image.png"], // You can add an OG image in your public folder later
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Webrano | Expert Web Development",
+    description: "High-performance websites for local businesses.",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -40,10 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${instrumentSans.variable} ${interTight.variable} font-sans antialiased selection:bg-primary/20`}>
+    <html lang="en" className="dark scroll-smooth">
+      <body className={`${interTight.variable} ${instrumentSans.variable} font-sans antialiased bg-[#020105] text-foreground selection:bg-primary/30`}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
