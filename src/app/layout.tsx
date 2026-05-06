@@ -15,24 +15,34 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Webrano | Expert Development & Design",
+  title: "Webrano | Expert Digital Development & Luxury Design",
   description:
-    "Specialized in high-end websites for Interior Designers, Salons, and Clinics. Senior-led startup providing corporate-grade development for local businesses.",
+    "Senior-led digital agency specializing in high-performance websites for Interior Designers, Architects, Salons, and Medical Clinics. We bring corporate-grade engineering to local businesses with a focus on speed, luxury aesthetics, and seamless booking systems.",
+  keywords: [
+    "Web Development",
+    "Interior Design Portfolios",
+    "Salon Booking Systems",
+    "Medical Clinic Websites",
+    "Luxury Web Design",
+    "Local Business SEO",
+    "Senior Developer Agency",
+  ],
   icons: {
-    icon: "/logo.svg", // This points to public/logo.svg
+    icon: "/logo.svg",
     apple: "/logo.svg",
   },
   openGraph: {
-    title: "Webrano | Premium Digital Agency",
+    title: "Webrano | High-End Web Development for Local Business",
     description:
-      "Expert web development and luxury design for your local business.",
+      "Specialized in luxury portfolios and smart booking systems for designers, salons, and clinics. Built with senior-level corporate expertise.",
     images: ["/logo.svg"],
     type: "website",
+    siteName: "Webrano",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Webrano | Digital Agency",
-    description: "Corporate-grade development for local brands.",
+    title: "Webrano | Premium Web Agency",
+    description: "Corporate-grade development for specialized local brands.",
     images: ["/logo.svg"],
   },
 };
