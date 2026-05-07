@@ -3,12 +3,13 @@ import { cn } from "@/lib/utils";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean;
   variant?: "primary" | "secondary" | "accent" | "outline" | "ghost" | "link";
   size?: "sm" | "md" | "lg" | "icon";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", size = "md", ...props }, ref) => {
+  ({ asChild = false, className, variant = "primary", size = "md", children, ...props }, ref) => {
     const variants = {
       primary: "bg-primary text-primary-foreground shadow-[0_10px_30px_rgba(8,112,184,0.15)] hover:bg-primary/90 hover:scale-[1.02]",
       secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/90 hover:scale-[1.02]",
@@ -25,17 +26,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-12 w-12",
     };
 
+    const buttonClassName = cn(
+      "inline-flex items-center justify-center whitespace-nowrap rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+      variants[variant],
+      sizes[size],
+      className
+    );
+
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<{ className?: string }>;
+
+      return React.cloneElement(child, {
+        className: cn(buttonClassName, child.props.className),
+      });
+    }
+
     return (
       <button
         ref={ref}
-        className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-95",
-          variants[variant],
-          sizes[size],
-          className
-        )}
+        className={buttonClassName}
         {...props}
-      />
+      >
+        {children}
+      </button>
     );
   }
 );

@@ -1,6 +1,5 @@
 'use client'
 
-import { NextStudio } from 'next-sanity/studio'
 import config from '../../../../sanity.config'
 import dynamic from 'next/dynamic'
 

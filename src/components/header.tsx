@@ -8,7 +8,27 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { BookingModal } from "@/components/booking-modal";
 
-export function Header() {
+interface HeaderProps {
+  siteSettings: {
+    brandName?: string;
+    brandMark?: string;
+    navigation?: { label: string; href: string }[];
+    booking?: {
+      visualTitle?: string;
+      visualAccent?: string;
+      visualImage?: string;
+      highlights?: string[];
+      formTitle?: string;
+      formDescription?: string;
+      submitText?: string;
+      successTitle?: string;
+      successDescription?: string;
+      businessOptions?: string[];
+    };
+  };
+}
+
+export function Header({ siteSettings }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
@@ -30,14 +50,14 @@ export function Header() {
       )}>
         <Link href="/" className="flex items-center space-x-2 group">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-black text-xl group-hover:rotate-12 transition-transform">
-            W
+            {siteSettings.brandMark || "L"}
           </div>
-          <span className="text-2xl font-black tracking-tighter">{siteConfig.name}</span>
+          <span className="text-2xl font-black tracking-tighter">{siteSettings.brandName || siteConfig.name}</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-10">
-          {siteConfig.navigation.map((item) => (
+          {(siteSettings.navigation?.length ? siteSettings.navigation : siteConfig.navigation).map((item) => (
             <Link
               key={item.label}
               href={item.href}
@@ -70,7 +90,12 @@ export function Header() {
         </button>
       </div>
 
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        brandMark={siteSettings.brandMark}
+        booking={siteSettings.booking}
+      />
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
@@ -83,7 +108,7 @@ export function Header() {
           </button>
           
           <nav className="flex flex-col items-center gap-10">
-            {siteConfig.navigation.map((item, i) => (
+            {(siteSettings.navigation?.length ? siteSettings.navigation : siteConfig.navigation).map((item, i) => (
               <Link
                 key={item.label}
                 href={item.href}

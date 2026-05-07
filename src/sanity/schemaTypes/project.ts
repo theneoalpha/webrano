@@ -1,41 +1,45 @@
-export default {
-  name: 'project',
-  title: 'Projects',
-  type: 'document',
+import { defineField, defineType } from "sanity";
+
+const project = defineType({
+  name: "project",
+  title: "Projects",
+  type: "document",
   fields: [
-    {
-      name: 'title',
-      title: 'Project Title',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-    },
-    {
-      name: 'image',
-      title: 'Project Image',
-      type: 'image',
+    defineField({
+      name: "title",
+      title: "Project Title",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+    }),
+    defineField({
+      name: "image",
+      title: "Project Image",
+      type: "image",
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: 'description',
-      title: 'Short Description',
-      type: 'text',
-    },
-    {
-      name: 'link',
-      title: 'Project Link',
-      type: 'url',
-    },
-    {
-      name: 'completedDate',
-      title: 'Completed Date',
-      type: 'date',
-    },
+    }),
+    defineField({
+      name: "description",
+      title: "Short Description",
+      type: "text",
+    }),
+    defineField({
+      name: "link",
+      title: "Project Link",
+      type: "url",
+    }),
+    defineField({
+      name: "completedDate",
+      title: "Completed Date",
+      type: "date",
+    }),
   ],
-}
+});
+
+export default project;

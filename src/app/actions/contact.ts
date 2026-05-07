@@ -1,10 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
+import { env } from "@/config/env";
 
 // You will need to add RESEND_API_KEY to your .env file
 const resend = new Resend(process.env.RESEND_API_KEY);
-
+const businessEmail = env.site.businessEmail;
 export async function sendBookingEmail(formData: {
   name: string;
   email: string;
@@ -17,7 +18,7 @@ export async function sendBookingEmail(formData: {
     // 1. Send Email to the Business Owner (You)
     await resend.emails.send({
       from: "Webrano <onboarding@resend.dev>",
-      to: "vikashkaushik910@gmail.com", // REPLACE THIS with your Resend signup email
+      to: businessEmail,
       subject: `New Project Inquiry from ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">
@@ -43,10 +44,10 @@ export async function sendBookingEmail(formData: {
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333; text-align: center;">
           <h2 style="color: #7c3aed;">Thanks for reaching out!</h2>
-          <p>Hi ${name}, we've received your request for a <strong>${business}</strong> website.</p>
+          <p>Hi ${name}, we've received your request for <strong>${business}</strong>.</p>
           <p>Our team is reviewing your details and will get back to you within 24 hours.</p>
           <div style="margin-top: 30px;">
-            <a href="https://webrano.com" style="background: #7c3aed; color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold;">Visit our site</a>
+            <a href="${env.site.url}" style="background: #7c3aed; color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold;">Visit our site</a>
           </div>
         </div>
       `,

@@ -1,77 +1,180 @@
+import { env } from "@/config/env";
+
+export const fallbackSiteSettings = {
+  brandName: "Webrano",
+  brandMark: "W",
+  description:
+    "Growth-focused startup agency for founders who need Instagram management, Facebook ads, SEO, and conversion-ready websites in one place.",
+  siteUrl: env.site.url,
+  footerTagline:
+    "We help early-stage startups look credible, get discovered, and turn attention into leads.",
+  contactEmail: env.site.contactEmail,
+  contactPhone: env.site.contactPhone,
+  address: env.site.address,
+  navigation: [
+    { label: "Services", href: "#services" },
+    { label: "About", href: "#about" },
+    { label: "Showcase", href: "#showcase" },
+    { label: "Why Us", href: "#team" },
+    { label: "Contact", href: "#contact" },
+  ],
+  socialLinks: [
+    { label: "Instagram", href: env.site.instagramUrl },
+    { label: "Facebook", href: env.site.facebookUrl },
+    { label: "LinkedIn", href: env.site.linkedinUrl },
+  ],
+  booking: {
+    visualTitle: "Let’s launch your next growth move.",
+    visualAccent: "Fast strategy, clean execution.",
+    visualImage:
+      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
+    highlights: [
+      "Instagram content systems for startup visibility",
+      "Facebook ads tuned for lead generation",
+      "SEO and websites built to convert early traffic",
+    ],
+    formTitle: "Start Your Growth Brief",
+    formDescription:
+      "Share what stage your startup is in and what you want help with. We’ll come back with a practical plan.",
+    submitText: "Request Growth Plan",
+    successTitle: "Brief Received",
+    successDescription:
+      "We’ve received your details and will reply with the next steps shortly.",
+    businessOptions: [
+      "Startup Founder",
+      "SaaS Startup",
+      "D2C Brand",
+      "Local Startup",
+      "Agency Partner",
+    ],
+  },
+};
+
+export const fallbackHomePage = {
+  servicesEyebrow: "What We Do",
+  servicesTitle: "Simple services to help your business grow online.",
+  servicesDescription:
+    "We are a small startup team, so we keep the offer focused: better social presence, smarter ads, stronger websites, and practical SEO for businesses that want to grow.",
+  showcaseEyebrow: "How We Help",
+  showcaseTitle: "Built for attention, clicks, and conversion.",
+  showcaseDescription:
+    "Each service is designed to support the others, so your startup doesn’t end up with disconnected marketing and a weak website.",
+  showcaseFeatures: [
+    {
+      title: "Instagram Page Management",
+      description:
+        "We plan content, design post systems, and keep your page active so your startup looks trusted from the first profile visit.",
+      image:
+        "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+      title: "Facebook Ads That Find Buyers",
+      description:
+        "We create campaigns for reach, leads, and retargeting so your ad spend goes toward measurable startup growth instead of guesswork.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+      title: "SEO And Websites That Convert",
+      description:
+        "We combine landing-page clarity, technical SEO, and fast development so your startup can rank better and convert traffic into enquiries.",
+      image:
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
+    },
+  ],
+  projectsEyebrow: "Selected Work",
+  projectsTitle: "Work we’ll be proud to show next.",
+  projectsDescription:
+    "We would rather earn real case studies than fill the site with placeholder projects. When we have published work, it will be here.",
+  projectsButtonText: "Future Case Studies",
+  testimonialsEyebrow: "Trust First",
+  testimonialsTitle: "No made-up praise, just clear execution.",
+  testimonialsDescription:
+    "We are building this the honest way. Instead of fake testimonials, we focus on strong delivery, clear communication, and long-term trust.",
+  teamEyebrow: "Why Us",
+  teamTitle: "A new team with a modern way of working.",
+  teamDescription:
+    "We are still early in our journey, and we are honest about that. What we bring is care, consistency, modern tools, and a serious approach to helping businesses build a better digital presence.",
+  teamQuote:
+    "We may be new, but we are focused on doing thoughtful work, communicating clearly, and helping businesses grow with the right digital foundation.",
+  teamQuoteAuthor: "Our Approach",
+};
+
+export const fallbackHero = {
+  title: "Digital support for growing businesses",
+  subtitle: "We help businesses with Instagram, Facebook ads, SEO, and modern websites.",
+  ctaText: "Book a Call",
+  image:
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1400",
+  badge: "For early-stage startups",
+};
+
+export const fallbackAbout = {
+  title: "We help small businesses build a better online presence.",
+  content:
+    "If your business needs a cleaner website, better social media presence, or a more practical marketing setup, we are here to help. We keep things simple, modern, and focused on helping you move forward one step at a time.",
+  image:
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200",
+  features: [
+    "Instagram strategy and execution",
+    "Facebook ads for leads and retargeting",
+    "SEO foundations for long-term growth",
+    "Startup websites built to convert",
+  ],
+};
+
+export const fallbackCta = {
+  title: "Ready to give your business more room to grow?",
+  subtitle:
+    "Let’s work on a digital presence that looks current, feels clear, and gives your business a stronger base to grow from.",
+  primaryCtaText: "Get a Custom Plan",
+  secondaryCtaText: "Talk To Our Team",
+};
+
 export const fallbackServices = [
   {
     _id: "s1",
-    title: "Portfolio Design",
-    description: "High-impact, visually stunning portfolios tailored for architects, interior designers, and creative professionals.",
-    icon: "🎨",
-    color: "bg-purple-500/10 text-purple-500"
+    title: "Instagram Management",
+    slug: "instagram-management",
+    description:
+      "We help you keep your page active, clean, and consistent so your business feels more trustworthy when people discover you online.",
+    color: "bg-pink-500/10 text-pink-400",
   },
   {
     _id: "s2",
-    title: "Business Websites",
-    description: "Professional, conversion-focused websites for clinics, salons, and local shops with integrated booking systems.",
-    icon: "🏢",
-    color: "bg-blue-500/10 text-blue-500"
+    title: "Facebook Ads Management",
+    slug: "facebook-ads-management",
+    description:
+      "We set up and manage practical ad campaigns focused on reach, leads, and steady improvement instead of random spending.",
+    color: "bg-blue-500/10 text-blue-400",
   },
   {
     _id: "s3",
-    title: "Speed Optimization",
-    description: "Lightning-fast loading speeds to ensure your local customers never wait, improving SEO and user retention.",
-    icon: "⚡",
-    color: "bg-amber-500/10 text-amber-500"
-  }
+    title: "SEO and Website Setup",
+    slug: "seo-and-website-setup",
+    description:
+      "We build modern websites and improve search basics so your business is easier to find and easier to trust.",
+    color: "bg-amber-500/10 text-amber-400",
+  },
 ];
 
-export const fallbackProjects = [
-  {
-    _id: "p1",
-    title: "Luxe Interiors",
-    category: "Interior Design",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
-    description: "A minimalist, high-speed portfolio showcase for a premium interior design studio.",
-    link: "#"
-  },
-  {
-    _id: "p2",
-    title: "Glow Salon & Spa",
-    category: "Salon",
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800",
-    description: "Mobile-friendly booking platform with a focus on visual storytelling and local SEO.",
-    link: "#"
-  },
-  {
-    _id: "p3",
-    title: "Urban Architect",
-    category: "Architecture",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800",
-    description: "A high-performance portfolio featuring large-scale imagery and interactive project maps.",
-    link: "#"
-  }
-];
+export const fallbackProjects = [];
 
-export const fallbackTestimonials = [
+export const fallbackTestimonials = [];
+
+export const fallbackTeam = [
   {
-    _id: "t1",
-    name: "Priya Sharma",
-    role: "Interior Designer",
-    content: "Webrano transformed my portfolio. My clients now spend 3x more time on my site, and the speed is just incredible.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+    _id: "founder",
+    name: "Webrano Team",
+    role: "Social, Ads, SEO and Website Support",
+    bio: "We are a young team focused on helping businesses improve how they show up online. Our goal is to give you cleaner execution, better consistency, and a digital presence that feels current.",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400",
+    skills: [
+      "Modern Tools",
+      "Clear Communication",
+      "Paid Ads",
+      "Web Development",
+    ],
   },
-  {
-    _id: "t2",
-    name: "Dr. Rahul Verma",
-    role: "Clinic Owner",
-    content: "The mobile booking system they built for my clinic is flawless. Affordable and highly professional service.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
-  },
-  {
-    _id: "t3",
-    name: "Sneha Kapur",
-    role: "Salon Manager",
-    content: "Our online presence went from zero to hero. The dark-themed design Webrano created perfectly matches our brand vibe.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200"
-  }
 ];

@@ -6,5 +6,6 @@ import hero from './hero'
 import about from './about'
 import cta from './cta'
 import team from './team'
+import homePage from './homePage'
 
-export const schemaTypes = [siteSettings, service, project, testimonial, hero, about, cta, team]
+export const schemaTypes = [siteSettings, service, project, testimonial, hero, about, cta, team, homePage]

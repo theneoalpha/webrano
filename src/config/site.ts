@@ -1,27 +1,30 @@
+import { env } from "@/config/env";
+
 export const siteConfig = {
   name: "Webrano",
-  description: "Establishing strong online presences through modern, mobile-friendly, and ultra-fast websites for local businesses.",
-  url: "https://webrano.com",
-  ogImage: "https://webrano.com/og.jpg",
+  description:
+    "Growth-focused startup agency helping businesses with Instagram, Facebook ads, SEO, and modern websites.",
+  url: env.site.url,
+  ogImage: `${env.site.url}/og.jpg`,
   links: {
-    twitter: "https://twitter.com/webrano",
-    github: "https://github.com/webrano",
-    instagram: "https://instagram.com/webrano",
+    instagram: env.site.instagramUrl,
+    facebook: env.site.facebookUrl,
+    linkedin: env.site.linkedinUrl,
   },
   contact: {
-    email: "hello@webrano.com",
-    phone: "+91 98765 43210",
-    address: "Modern Workspace, Tech Park, India",
+    email: env.site.contactEmail,
+    phone: env.site.contactPhone,
+    address: env.site.address,
   },
   navigation: [
     { label: "Services", href: "#services" },
-    { label: "Portfolio", href: "#projects" },
-    { label: "Experience", href: "#about" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "About", href: "#about" },
+    { label: "Showcase", href: "#showcase" },
+    { label: "Why Us", href: "#team" },
     { label: "Contact", href: "#contact" },
   ],
   footer: {
-    tagline: "Empowering local businesses with world-class digital storefronts.",
+    tagline: "Helping businesses build visibility, trust, and momentum online.",
     copyright: "All rights reserved.",
-  }
+  },
 };

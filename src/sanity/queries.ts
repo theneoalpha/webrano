@@ -2,7 +2,55 @@ import { groq } from "next-sanity";
 import { client } from "./client";
 
 // Queries
-export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]`;
+export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
+  brandName,
+  description,
+  siteUrl,
+  brandMark,
+  footerTagline,
+  contactEmail,
+  contactPhone,
+  address,
+  navigation,
+  socialLinks,
+  booking {
+    visualTitle,
+    visualAccent,
+    "visualImage": visualImage.asset->url,
+    highlights,
+    formTitle,
+    formDescription,
+    submitText,
+    successTitle,
+    successDescription,
+    businessOptions
+  }
+}`;
+export const homePageQuery = groq`*[_type == "homePage"][0] {
+  servicesEyebrow,
+  servicesTitle,
+  servicesDescription,
+  showcaseEyebrow,
+  showcaseTitle,
+  showcaseDescription,
+  showcaseFeatures[] {
+    title,
+    description,
+    "image": image.asset->url
+  },
+  projectsEyebrow,
+  projectsTitle,
+  projectsDescription,
+  projectsButtonText,
+  testimonialsEyebrow,
+  testimonialsTitle,
+  testimonialsDescription,
+  teamEyebrow,
+  teamTitle,
+  teamDescription,
+  teamQuote,
+  teamQuoteAuthor
+}`;
 
 export const heroQuery = groq`*[_type == "hero"][0] {
   title,
@@ -66,6 +114,10 @@ export const teamQuery = groq`*[_type == "team"] | order(order asc) {
 // Fetch Helpers
 export async function getSiteSettings() {
   return client.fetch(siteSettingsQuery);
+}
+
+export async function getHomePage() {
+  return client.fetch(homePageQuery);
 }
 
 export async function getHero() {
